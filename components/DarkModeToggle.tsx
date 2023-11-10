@@ -11,7 +11,7 @@ function DarkModeToggle() {
 
   return (
     <Button
-      variant="outline"
+      variant="ghost"
       size="icon"
       onClick={() => (theme === "light" ? setTheme("dark") : setTheme("light"))}
     >
