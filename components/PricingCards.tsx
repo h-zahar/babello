@@ -1,11 +1,13 @@
 import { CheckIcon } from "lucide-react";
+import Link from "next/link";
 import React from "react";
+import CheckoutButton from "./CheckoutButton";
 
 function PricingCards({ redirect }: { redirect: boolean }) {
   const tiers = [
     {
       name: "Starter",
-      id: "1",
+      id: null,
       href: "#",
       priceMonthly: null,
       description: "Get chatting right away with anyone, anywhere!",
@@ -37,10 +39,10 @@ function PricingCards({ redirect }: { redirect: boolean }) {
   return (
     <div>
       <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-2">
-        {tiers.map((tier) => {
+        {tiers.map((tier, i) => {
           return (
             <div
-              key={tier.id}
+              key={i}
               className="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10"
             >
               <div>
@@ -83,6 +85,16 @@ function PricingCards({ redirect }: { redirect: boolean }) {
                   })}
                 </ul>
               </div>
+              {redirect ? (
+                <Link
+                  href="/register"
+                  className="mt-8 rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80"
+                >
+                  Get Started Today
+                </Link>
+              ) : (
+                tier.id && <CheckoutButton />
+              )}
             </div>
           );
         })}
