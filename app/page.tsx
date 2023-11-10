@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="">
+    <main>
       <h1>Babello</h1>
     </main>
   );
