@@ -45,14 +45,15 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-16 flow-root sm:mt-24">
-            <div className="mx-10 rounded-xl bg-gray-900/5 px-5 ring-inset ring-gray-900/10 md:mx-20 lg:rounded-2xl md:px-20">
+          <div className="mt-16 flow-root sm:mt-24 select-none">
+            <div className="mx-10 rounded-xl bg-gray-900/5 px-5 ring-inset ring-gray-900/10 md:mx-24 lg:rounded-2xl md:px-24">
               <Image
                 unoptimized
                 src={DemoGif}
                 alt="Snapshot"
                 width={2432}
                 height={1442}
+                draggable={false}
                 className="rounded-md shadow-2xl ring-1 ring-gray-900/10"
               />
             </div>
