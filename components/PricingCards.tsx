@@ -21,9 +21,9 @@ function PricingCards({ redirect }: { redirect: boolean }) {
     },
     {
       name: "Pro",
-      id: "2",
+      id: "pro",
       href: "#",
-      priceMonthly: "4.99",
+      priceMonthly: "5.00",
       description: "Unlock the Full Potential with Pro!",
       features: [
         "Unlimited Messages in Chats",
