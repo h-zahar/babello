@@ -16,7 +16,7 @@ function CheckoutButton() {
     const docRef = await addDoc(
       collection(db, "customers", session.user.id, "checkout_sessions"),
       {
-        price: "price_1O0998KDjTc6FlwiIL3eBoYQ",
+        price: process.env.STRIPE_PRO_ID,
         success_url: window.location.origin,
         cancel_url: window.location.origin,
       }
