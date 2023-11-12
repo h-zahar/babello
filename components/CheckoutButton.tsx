@@ -1,9 +1,28 @@
 "use client";
 
-import React from "react";
+import { db } from "@/firebase";
+import { addDoc, collection } from "firebase/firestore";
+import { useSession } from "next-auth/react";
+import React, { useState } from "react";
 
 function CheckoutButton() {
-  const createCheckoutSession = async () => {};
+  const { data: session } = useSession();
+  const [loading, setLoading] = useState(false);
+
+  const createCheckoutSession = async () => {
+    if (!session?.user.id) return;
+    setLoading(true);
+
+    const docRef = await addDoc(
+      collection(db, "customers", session.user.id, "checkout_sessions"),
+      {
+        price: "price_1O0998KDjTc6FlwiIL3eBoYQ",
+        success_url: window.location.origin,
+        cancel_url: window.location.origin,
+      }
+    );
+  };
+
   return (
     <div className="flex flex-col space-y-2">
       <button
