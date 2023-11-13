@@ -1,7 +1,11 @@
+import { authOptions } from "@/auth";
 import PricingCards from "@/components/PricingCards";
+import { getServerSession } from "next-auth";
 import React from "react";
 
-function pricingPage() {
+async function pricingPage() {
+  const session = await getServerSession(authOptions);
+
   return (
     <div className="isolate overflow-hidden bg-gray-900">
       <div className="mx-auto max-w-7xl px-6 pt-14 text-center sm:pt-16 lg:px-8">
@@ -42,7 +46,7 @@ function pricingPage() {
 
       <div className="flow-root bg-white pb-24 sm:pb-32">
         <div className="-mt-40 md:-mt-32">
-          <PricingCards redirect={true} />
+          <PricingCards redirect={true} isLogged={!session ? false : true} />
         </div>
       </div>
     </div>

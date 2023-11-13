@@ -3,7 +3,13 @@ import Link from "next/link";
 import React from "react";
 import CheckoutButton from "./CheckoutButton";
 
-function PricingCards({ redirect }: { redirect: boolean }) {
+function PricingCards({
+  redirect,
+  isLogged,
+}: {
+  redirect: boolean;
+  isLogged: boolean;
+}) {
   const tiers = [
     {
       name: "Starter",
@@ -23,7 +29,7 @@ function PricingCards({ redirect }: { redirect: boolean }) {
       name: "Pro",
       id: "pro",
       href: "#",
-      priceMonthly: "5.00",
+      priceMonthly: "4.89",
       description: "Unlock the Full Potential with Pro!",
       features: [
         "Unlimited Messages in Chats",
@@ -85,16 +91,15 @@ function PricingCards({ redirect }: { redirect: boolean }) {
                   })}
                 </ul>
               </div>
-              {redirect ? (
+              {redirect && !tier?.id && !isLogged && (
                 <Link
                   href="/register"
                   className="mt-8 rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80"
                 >
                   Get Started Today
                 </Link>
-              ) : (
-                tier.id && <CheckoutButton />
-              )}
+              )}{" "}
+              {tier.id && <CheckoutButton />}
             </div>
           );
         })}
