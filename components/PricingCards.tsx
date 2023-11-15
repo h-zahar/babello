@@ -1,7 +1,10 @@
+"use client";
+
 import { CheckIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import CheckoutButton from "./CheckoutButton";
+import { useSubscriptionStore } from "@/store/store";
 
 function PricingCards({
   redirect,
@@ -42,6 +45,9 @@ function PricingCards({
       ],
     },
   ];
+
+  const subscribe = useSubscriptionStore((state) => state.subscription);
+
   return (
     <div>
       <div
@@ -109,7 +115,17 @@ function PricingCards({
                   Get Started Today
                 </Link>
               )}{" "}
-              {tier.id && <CheckoutButton />}
+              {redirect && tier.id && (
+                <Link
+                  href="/register"
+                  className="mt-8 rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80"
+                >
+                  {subscribe === undefined
+                    ? "Loading Info.."
+                    : "Subscribe to PRO"}
+                </Link>
+              )}
+              {!redirect && tier.id && <CheckoutButton />}
             </div>
           );
         })}

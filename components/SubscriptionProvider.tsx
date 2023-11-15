@@ -21,6 +21,7 @@ function SubscriptionProvider({ children }: { children: React.ReactNode }) {
       subsciptionRef(session?.user.id),
       (snapShot) => {
         if (snapShot.empty) {
+          setSubscription(null);
           console.log("User has No subscription");
           return;
         } else {
