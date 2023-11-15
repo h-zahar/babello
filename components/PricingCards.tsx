@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import CheckoutButton from "./CheckoutButton";
 import { useSubscriptionStore } from "@/store/store";
+import LoadingSpinner from "./LoadingSpinner";
 
 function PricingCards({
   redirect,
@@ -123,7 +124,7 @@ function PricingCards({
                   </div>
                 ) : subscribe === undefined ? (
                   <div className="mt-8 block rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm">
-                    {"Loading Info.."}
+                    <LoadingSpinner />
                   </div>
                 ) : (
                   <Link
