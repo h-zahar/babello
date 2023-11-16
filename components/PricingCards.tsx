@@ -6,6 +6,7 @@ import React from "react";
 import CheckoutButton from "./CheckoutButton";
 import { useSubscriptionStore } from "@/store/store";
 import LoadingSpinner from "./LoadingSpinner";
+import ManageBillingButton from "./ManageBillingButton";
 
 function PricingCards({
   redirect,
@@ -120,7 +121,7 @@ function PricingCards({
                 tier.id &&
                 (subscribe?.role === "pro" ? (
                   <div className="mt-8 block rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm">
-                    {"Thanks for subscribing"}
+                    <ManageBillingButton />
                   </div>
                 ) : subscribe === undefined ? (
                   <div className="mt-8 block rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm">

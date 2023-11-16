@@ -16,6 +16,7 @@ import { signIn, signOut } from "next-auth/react";
 import { useSubscriptionStore } from "@/store/store";
 import LoadingSpinner from "./LoadingSpinner";
 import { StarIcon } from "lucide-react";
+import { generatePortalLink } from "@/actions/generatePortalLink";
 
 function UserButton({ session }: { session: Session | null }) {
   const subscription = useSubscriptionStore((state) => state.subscription);
@@ -47,7 +48,9 @@ function UserButton({ session }: { session: Session | null }) {
 
             <DropdownMenuSeparator />
 
-            <DropdownMenuItem>Manage</DropdownMenuItem>
+            <DropdownMenuItem onClick={generatePortalLink}>
+              Manage
+            </DropdownMenuItem>
           </>
         )}
 
