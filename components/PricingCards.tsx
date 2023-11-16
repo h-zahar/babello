@@ -116,24 +116,34 @@ function PricingCards({
                 >
                   Get Started Today
                 </Link>
-              )}{" "}
+              )}
+              {redirect && tier.id && !isLogged && (
+                <Link
+                  href="/register"
+                  className="mt-8 rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80"
+                >
+                  {"Subscribe to PRO"}
+                </Link>
+              )}
               {redirect &&
                 tier.id &&
                 (subscribe?.role === "pro" ? (
                   <div className="mt-8 block rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm">
                     <ManageBillingButton />
                   </div>
-                ) : subscribe === undefined ? (
+                ) : subscribe === undefined && isLogged ? (
                   <div className="mt-8 block rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm">
                     <LoadingSpinner />
                   </div>
                 ) : (
-                  <Link
-                    href="/register"
-                    className="mt-8 rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80"
-                  >
-                    {subscribe === null && "Subscribe to PRO"}
-                  </Link>
+                  subscribe === null && (
+                    <Link
+                      href="/register"
+                      className="mt-8 rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80"
+                    >
+                      {"Subscribe to PRO"}
+                    </Link>
+                  )
                 ))}
               {!redirect && tier.id && <CheckoutButton />}
             </div>
