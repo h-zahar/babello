@@ -1,7 +1,11 @@
 import React from "react";
 
-function ChatsLayout() {
-  return <div>ChatsLayout</div>;
+function ChatsLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex-1 w-full flex flex-col max-w-6xl mx-auto">
+      {children}
+    </div>
+  );
 }
 
 export default ChatsLayout;
