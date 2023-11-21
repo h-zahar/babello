@@ -77,7 +77,7 @@ function ChatInput({ chatId }: { chatId: string }) {
   };
 
   return (
-    <div>
+    <div className="sticky bottom-0">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
