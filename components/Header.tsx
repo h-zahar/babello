@@ -8,6 +8,7 @@ import Link from "next/link";
 import { MessagesSquareIcon } from "lucide-react";
 import CreateChatButton from "./CreateChatButton";
 import UpgradeBanner from "./UpgradeBanner";
+import LanguageSelect from "./LanguageSelect";
 
 async function Header() {
   const session = await getServerSession(authOptions);
@@ -23,6 +24,7 @@ async function Header() {
         <div className="flex-1 flex items-center justify-end space-x-4">
           {session ? (
             <>
+              <LanguageSelect />
               <Link href={"/chat"} prefetch={false}>
                 <MessagesSquareIcon className="text-black dark:text-white" />
               </Link>
