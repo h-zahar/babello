@@ -21,7 +21,7 @@ async function Chat({ params: { chatId } }: Props) {
 
   return (
     <>
-      <div className="flex-1">
+      <div className="min-h-[calc(100vh-10rem)]">
         <ChatMessages
           chatId={chatId}
           session={session}
