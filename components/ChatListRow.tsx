@@ -7,10 +7,13 @@ import { Skeleton } from "./ui/skeleton";
 import UserAvatar from "./UserAvatar";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useLanguageStore } from "@/store/store";
 
 function ChatListRow({ chatId }: { chatId: string }) {
   const { data: session } = useSession();
   const router = useRouter();
+
+  const language = useLanguageStore((state) => state.language);
 
   const [messages, loading, error] = useCollectionData<Message>(
     sortedMessagesRef(chatId)
@@ -40,7 +43,7 @@ function ChatListRow({ chatId }: { chatId: string }) {
         </p>
 
         <p className="text-grey-400 line-clamp-1">
-          {message?.translated?.["en"] || "Get the conversation started..."}
+          {message?.translated?.[language] || "Get the conversation started..."}
         </p>
       </div>
 
