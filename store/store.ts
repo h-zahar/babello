@@ -19,7 +19,7 @@ export const LanguageSupportedMap: Record<LanguageSupported, string> = {
   de: "German",
   fr: "French",
   es: "Spanish",
-  bn: "bangla",
+  bn: "Bangla",
   hi: "Hindi",
   ja: "Japanese",
   la: "Latin",
