@@ -8,6 +8,7 @@ import React, { createRef, useEffect } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import LoadingSpinner from "./LoadingSpinner";
 import UserAvatar from "./UserAvatar";
+import LoadingCircularSpinner from "./LoadingCircularSpinner";
 
 function ChatMessages({
   chatId,
@@ -31,6 +32,7 @@ function ChatMessages({
   useEffect(() => {
     messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, messageEndRef]);
+  console.log(messages);
   return (
     <div>
       {!loading && messages?.length === 0 && (
@@ -73,7 +75,7 @@ function ChatMessages({
                 </p>
                 <div className="flex space-x-2">
                   <p>{message?.translated?.[language] || message.input}</p>
-                  {!message?.translated && <LoadingSpinner />}
+                  {!message?.translated && <LoadingCircularSpinner />}
                 </div>
               </div>
 
