@@ -1,6 +1,6 @@
 "use client";
 
-import { Message, limitedMessagesRef } from "@/lib/converters/message";
+import { Message, sortedMessagesRef } from "@/lib/converters/message";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import React from "react";
 import { Skeleton } from "./ui/skeleton";
@@ -13,7 +13,7 @@ function ChatListRow({ chatId }: { chatId: string }) {
   const router = useRouter();
 
   const [messages, loading, error] = useCollectionData<Message>(
-    limitedMessagesRef(chatId)
+    sortedMessagesRef(chatId)
   );
 
   const prettyUUID = (n = 4) => {
@@ -48,7 +48,7 @@ function ChatListRow({ chatId }: { chatId: string }) {
         <p className="mb-auto">
           {message
             ? new Date(message.timestamp).toLocaleTimeString()
-            : "No messages yet"}
+            : "No history"}
         </p>
         <p>Chat #{prettyUUID()}</p>
       </div>
@@ -68,7 +68,9 @@ function ChatListRow({ chatId }: { chatId: string }) {
       )}
 
       {messages?.length === 0 && !loading && row()}
-      {messages?.map((message) => row(message))}
+      {messages !== undefined &&
+        messages?.length > 0 &&
+        row(messages[messages.length - 1])}
     </div>
   );
 }
