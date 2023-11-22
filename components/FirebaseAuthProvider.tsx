@@ -22,7 +22,7 @@ function FirebaseAuthProvider({ children }: { children: React.ReactNode }) {
   const { data: session } = useSession();
 
   useEffect(() => {
-    console.log(session);
+    // console.log(session);
     if (!session) return;
 
     syncFirebaseAuth(session);
