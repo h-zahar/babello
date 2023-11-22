@@ -8,8 +8,12 @@ import { useSession } from "next-auth/react";
 import { useSubscriptionStore } from "@/store/store";
 import { useToast } from "./ui/use-toast";
 import { v4 as uuidv4 } from "uuid";
-import { addChatRef } from "@/lib/converters/chatMembers";
-import { serverTimestamp, setDoc } from "firebase/firestore";
+import {
+  addChatRef,
+  chatMemberCollectionGroupRef,
+} from "@/lib/converters/chatMembers";
+import { getDocs, serverTimestamp, setDoc } from "firebase/firestore";
+import { ToastAction } from "./ui/toast";
 
 function CreateChatButton({ isLarge }: { isLarge?: boolean }) {
   const { data: session } = useSession();
@@ -27,6 +31,29 @@ function CreateChatButton({ isLarge }: { isLarge?: boolean }) {
       duration: 3000,
     });
 
+    const noOfChats = (
+      await getDocs(chatMemberCollectionGroupRef(session?.user.id))
+    ).docs.map((doc) => doc.data()).length;
+
+    const isPro = subscription?.role === "pro";
+
+    if (!isPro && noOfChats) {
+      toast({
+        title: "Free plan limit exceeded",
+        description:
+          "You've exceeded the limit of chats for the free plan. Please upgrade to PRO to enjoy limitless chatting!",
+        variant: "destructive",
+        action: (
+          <ToastAction
+            altText="upgrade"
+            onClick={() => router.push("/register")}
+          >
+            Upgrade to PRO
+          </ToastAction>
+        ),
+      });
+    }
+
     const chatId = uuidv4();
 
     await setDoc(addChatRef(chatId, session.user.id), {
@@ -41,7 +68,7 @@ function CreateChatButton({ isLarge }: { isLarge?: boolean }) {
         toast({
           title: "Success",
           description: "Your chat has been created!",
-          className: "bg-green text-white",
+          className: "bg-green-500 text-white",
           duration: 2000,
         });
         router.push(`/chat/${chatId}`);
