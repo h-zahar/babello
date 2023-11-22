@@ -1,5 +1,6 @@
 import { authOptions } from "@/auth";
 import ChatInput from "@/components/ChatInput";
+import ChatMembersBadges from "@/components/ChatMembersBadges";
 import ChatMessages from "@/components/ChatMessages";
 import { sortedMessagesRef } from "@/lib/converters/message";
 import { getDocs } from "firebase/firestore";
@@ -22,6 +23,7 @@ async function Chat({ params: { chatId } }: Props) {
   return (
     <>
       <div className="min-h-[calc(100vh-10rem)]">
+        <ChatMembersBadges chatId={chatId} />
         <ChatMessages
           chatId={chatId}
           session={session}
