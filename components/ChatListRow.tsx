@@ -32,7 +32,7 @@ function ChatListRow({ chatId }: { chatId: string }) {
       <UserAvatar
         name={message?.user.name! || session?.user.name!}
         image={message?.user.image! || session?.user.image!}
-        className="border border-indigo-500 scale-125"
+        className="border border-blue-500 scale-125"
       />
 
       <div className="flex-1 ps-2">

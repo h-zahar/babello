@@ -34,7 +34,7 @@ function ChatMembersBadges({ chatId }: { chatId: string }) {
                 <div>
                   <p>{member.email}</p>
                   {member.userId === adminId && (
-                    <p className="text-indigo-400 animate-pulse">Admin</p>
+                    <p className="text-blue-400 animate-pulse">Admin</p>
                   )}
                 </div>
               </Badge>

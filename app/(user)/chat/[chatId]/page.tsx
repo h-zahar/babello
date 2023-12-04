@@ -33,7 +33,7 @@ async function Chat({ params: { chatId } }: Props) {
 
   return (
     <>
-      <div className="min-h-[calc(100vh-10rem)]">
+      <div className="min-h-[calc(100vh-10rem)] mb-5">
         <AdminControls chatId={chatId} />
         <ChatMembersBadges chatId={chatId} />
         <ChatMessages

@@ -11,7 +11,7 @@ export default function Home() {
           aria-hidden="true"
         >
           <div
-            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] rotate-[-10deg] -translate-x-1/4 md:-translate-x-3/4 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] rotate-[-10deg] -translate-x-1/4 md:-translate-x-3/4 bg-gradient-to-tr from-[#3da4f3] to-[#9089fc] opacity-30"
             style={{
               clipPath:
                 "polygon(0 0, 51% 49%, 100% 1%, 100% 100%, 51% 49%, 0 100%)",
@@ -25,14 +25,14 @@ export default function Home() {
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-800 dark:text-gray-300">
               You speak your language, they speak theirs.{" "}
-              <span className="text-indigo-600 dark:text-indigo-500">
+              <span className="text-blue-600 dark:text-blue-500">
                 Let AI handle the translation
               </span>
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="/chat"
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white dark:text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white dark:text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               >
                 Get started
               </Link>
@@ -65,7 +65,7 @@ export default function Home() {
           aria-hidden="true"
         >
           <div
-            className="relative left-[calc(50%+10rem)] aspect-[1155/678] w-[36.125rem] rotate-[-10deg] -translate-x-1/4 md:-translate-x-3/4 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
+            className="relative left-[calc(50%+10rem)] aspect-[1155/678] w-[36.125rem] rotate-[-10deg] -translate-x-1/4 md:-translate-x-3/4 bg-gradient-to-tr from-[#3da4f3] to-[#9089fc] opacity-30"
             style={{
               clipPath:
                 "polygon(0 0, 51% 49%, 100% 1%, 100% 100%, 51% 49%, 0 100%)",

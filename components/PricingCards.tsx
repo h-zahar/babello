@@ -65,7 +65,7 @@ function PricingCards({
             >
               {(isLogged && tier?.id) || !isLogged ? (
                 <div>
-                  <h3 className="text-base font-semibold leading-7 text-indigo-600">
+                  <h3 className="text-base font-semibold leading-7 text-blue-600">
                     {tier.name}
                   </h3>
                   <div className="mt-4 flex items-baseline gap-x-2">
@@ -95,7 +95,7 @@ function PricingCards({
                       return (
                         <li key={i} className="flex gap-x-3">
                           <CheckIcon
-                            className="h-6 flex-none text-indigo-600"
+                            className="h-6 flex-none text-blue-600"
                             aria-hidden="true"
                           />
                           {feature}
@@ -105,14 +105,14 @@ function PricingCards({
                   </ul>
                 </div>
               ) : (
-                <p className="text-indigo-600 text-center">
+                <p className="text-blue-600 text-center">
                   <span className="text-black">Welcome to</span> Babello!
                 </p>
               )}
               {redirect && !tier?.id && !isLogged && (
                 <Link
                   href="/register"
-                  className="mt-8 rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80"
+                  className="mt-8 rounded-md bg-blue-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer disabled:opacity-80"
                 >
                   Get Started Today
                 </Link>
@@ -120,7 +120,7 @@ function PricingCards({
               {redirect && tier.id && !isLogged && (
                 <Link
                   href="/register"
-                  className="mt-8 rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80"
+                  className="mt-8 rounded-md bg-blue-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer disabled:opacity-80"
                 >
                   {"Subscribe to PRO"}
                 </Link>
@@ -128,18 +128,18 @@ function PricingCards({
               {redirect &&
                 tier.id &&
                 (subscribe?.role === "pro" ? (
-                  <div className="mt-8 block rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm">
+                  <div className="mt-8 block rounded-md bg-blue-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm">
                     <ManageBillingButton />
                   </div>
                 ) : subscribe === undefined && isLogged ? (
-                  <div className="mt-8 block rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm">
+                  <div className="mt-8 block rounded-md bg-blue-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm">
                     <LoadingSpinner />
                   </div>
                 ) : (
                   subscribe === null && (
                     <Link
                       href="/register"
-                      className="mt-8 rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80"
+                      className="mt-8 rounded-md bg-blue-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer disabled:opacity-80"
                     >
                       {"Subscribe to PRO"}
                     </Link>

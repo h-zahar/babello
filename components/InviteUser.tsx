@@ -141,9 +141,7 @@ function InviteUser({ chatId }: { chatId: string }) {
               <DialogDescription>
                 Simply enter another users email address to invite them to this
                 chat{" "}
-                <span className="text-indigo-600">
-                  (They must be registered)
-                </span>
+                <span className="text-blue-600">(They must be registered)</span>
               </DialogDescription>
             </DialogHeader>
 

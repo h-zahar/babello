@@ -100,7 +100,7 @@ function ChatInput({ chatId }: { chatId: string }) {
           />
           <Button
             type="submit"
-            className="bg-violet-600 text-white dark:hover:text-black"
+            className="bg-indigo-600 text-white dark:hover:text-black"
           >
             Send
           </Button>
